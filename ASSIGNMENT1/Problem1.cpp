@@ -1,36 +1,34 @@
-/******************************************************************************
-
-                              Online C++ Compiler.
-               Code, Compile, Run and Debug C++ program online.
-Write your code in this editor and press "Run" button to compile and execute it.
-
-*******************************************************************************/
-
 #include <iostream>
+#include <vector>
 
-using namespace std;
- vector<vector<int>> problem1(vector<int>& row, vector<int>& col) {
-        int m = row.size(), n = col.size();
-        vector<vector<int>> A(m, vector<int>(n, 0));
-        for (int i = 0; i < m; ++i) {
-            for (int j = 0 ; j < n; ++j) {
-                A[i][j] = min(row[i], col[j]);
-                row[i] -= A[i][j];
-                col[j] -= A[i][j];
-            }
+std::vector<std::vector<int>> reconstructMatrix(std::vector<int>& rowSum, std::vector<int>& colSum) {
+    int m = rowSum.size();
+    int n = colSum.size();
+    std::vector<std::vector<int>> result(m, std::vector<int>(n, 0));
+
+    for (int i = 0; i < m; ++i) {
+        for (int j = 0; j < n; ++j) {
+            result[i][j] = std::min(rowSum[i], colSum[j]);
+            rowSum[i] -= result[i][j];
+            colSum[j] -= result[i][j];
         }
-        return A;
     }
 
-int main()
-{
-     vector<int> col{3,8}; 
-     vector<int> a{4,7}; 
-    vector<int> res=problem1(col);
-    
-    for(auto store:res) cout<<store<<" ";
-    cout<<endl;
-    
-    return 0;  
-    
+    return result;
+}
+
+int main() {
+    std::vector<int> rowSum = {3, 8};
+    std::vector<int> colSum = {4, 7};
+
+    std::vector<std::vector<int>> matrix = reconstructMatrix(rowSum, colSum);
+
+    for (const auto& row : matrix) {
+        for (int value : row) {
+            std::cout << value << " ";
+        }
+        std::cout << std::endl;
+    }
+
+    return 0;
 }
