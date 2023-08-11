@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+
+<p >JavaScript</p>
+
+<script>
+class Person {
+  constructor(name,age,gender) {
+    this.name = name;
+    this.age = age;
+    this.gender = gender
+  }
+
+  introduce() {
+    console.log(`Hello, I'm ${this.name}`);
+    console.log(`Age:${this.age}`);
+    console.log(`Gender:${this.gender}`);
+  }
+}
+
+class Student extends Person {
+  constructor(name,age,gender,studentid) {
+    super(name,age,gender);
+    this.studentid = studentid;
+  }
+
+  display() {
+    console.log(`Hello, I'm ${this.name}`);
+    console.log(`Age:${this.age}`);
+    console.log(`Gender:${this.gender}`);
+    console.log(`StudentId:${this.studentid}`);
+
+  }
+}
+
+    
+
+
+
+class Teacher extends Person {
+  constructor(name,age,gender,subject) {
+    super(name,age,gender);
+    this.subject = subject;
+  }
+
+  display1() {
+    console.log(`Hello, I'm Your Teacher${this.name}`);
+    console.log(`Age:${this.age}`);
+    console.log(`Gender:${this.gender}`);
+    console.log(`Subject:${this.subject}`);
+
+  }
+}
+
+
+const obj = new Student("Shruti", "22","Female","1002");
+
+obj.introduce();
+obj.display(); 
+
+const obj1 = new Teacher("John", "42","Male","Maths");
+
+obj1.introduce();
+obj1.display1(); 
+
+</script>
+
+</body>
+</html>
