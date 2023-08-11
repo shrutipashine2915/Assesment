@@ -11,7 +11,7 @@ void printSubStr(string str, int low, int high)
 }
  
 
-int Palindromelen(string str)
+void Palindromelen(string str)
 {
     
     int n = str.size();
@@ -39,14 +39,18 @@ int Palindromelen(string str)
     
      
       printSubStr(str, start, start + max - 1);
-      return 0;
+      
 }
  
 
 int main()
 {
-    string str1="stringmadam";
+    string str1;
+    cout<<"Enter the String:";
+   cin>>str1;
+    
 
-    cout << Palindromelen(str1) << endl; 
+    Palindromelen(str1); 
+
     return 0;
 }
