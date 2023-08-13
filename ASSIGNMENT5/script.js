@@ -8,29 +8,15 @@ const data = [
   },
 ];
 
-for (let i = 0; i < data.length; i++) 
-{
-    const obj = data[i];
-    for (let key in obj) 
-    {
-      if (key === "type") 
-      {
-        console.log(obj[key]);
-      } 
-      else if (key === "children") 
-      {
-        for (let j = 0; j < obj.children.length; j++) 
-        {
-          const childObj = obj.children[j];
-          
-          for (let childKey in childObj) 
-          {
-              if (childKey === "type") 
-              console.log(childObj[childKey]);
-              {
-            }
-         }
-        }
-      }
-    }
-  }
+ 
+  console.log(data[0].type);
+  console.log(data[0].children[0].type); 
+  console.log(data[0].children[0].children[0].type); 
+  console.log(data[0].children[1].type);
+  console.log(data[0].children[1].children[0].type);
+  console.log(data[0].children[1].children[1].type);
+ 
+  
+ 
+
+  
